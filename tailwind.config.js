@@ -17,6 +17,9 @@ module.exports = {
           violet: '#7928CA',
         },
       },
+      fontFamily: {
+        christmas: ['var(--font-christmas)', 'ui-serif', 'serif'],
+      },
       keyframes: ({ theme }) => ({
         rerender: {
           '0%': {
