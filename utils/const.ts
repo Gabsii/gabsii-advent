@@ -32,8 +32,8 @@ export const daysData = [
     src: Img4,
   },
   {
-    title: 'TBD',
-    caption: 'TBD',
+    title: 'Amen',
+    caption: 'May Jesus... or someone be with you',
     src: Img5,
   },
 ];
