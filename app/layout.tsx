@@ -1,6 +1,7 @@
+// import { AnimatePresence } from 'framer-motion';
+
 import '@/styles/dist.css';
 import Header from '@/ui/components/Header';
-import React from 'react';
 import { mountainsOfChristmas } from 'utils/fonts';
 
 export default function RootLayout({

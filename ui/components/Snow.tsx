@@ -4,8 +4,9 @@ import { Canvas, useLoader, useFrame, Vector3 } from '@react-three/fiber'
 import { useRef } from 'react';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { Sprite, Vector3 as ThreeVector3 } from 'three';
-import { SNOW_PARTICLES_AMOUNT } from 'utils/const';
 import { generateRandomVector, generateRandomVectorVelocity } from 'utils/three';
+import GiftWrapper from './GiftWrapper';
+import { SNOW_PARTICLES_AMOUNT } from 'utils/const';
 
 // borrowed from https://swordair.com/demos/threejs-snow/ hihi
 
@@ -36,7 +37,7 @@ const SnowParticle = ({ position, scale, velocity }: { position: Vector3, scale:
 
 const Snow = () => {
   return (
-    <div className="h-screen w-screen absolute top-0 left-0 -z-10">
+    <div className="h-screen w-screen absolute top-0 left-0">
       <Canvas>
         {
           Array.from({ length: SNOW_PARTICLES_AMOUNT }).map((_, i) => {
@@ -50,6 +51,15 @@ const Snow = () => {
             )
           })
         }
+        <GiftWrapper position={[-2, 2, 0]} number={1} />
+        <GiftWrapper position={[0, 2, 0]} number={2} />
+        <GiftWrapper position={[2, 2, 0]} number={3} />
+        <GiftWrapper position={[-2, 0, 0]} number={4} />
+        <GiftWrapper position={[0, 0, 0]} number={5} />
+        <GiftWrapper position={[2, 0, 0]} number={6} />
+        <GiftWrapper position={[-2, -2, 0]} number={7} />
+        <GiftWrapper position={[0, -2, 0]} number={8} />
+        <GiftWrapper position={[2, -2, 0]} number={9} />
       </Canvas>
     </div>
   )

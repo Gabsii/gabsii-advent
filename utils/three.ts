@@ -2,6 +2,8 @@ import { Vector3 } from '@react-three/fiber'
 import { Vector3 as ThreeVector3 } from 'three';
 import { SNOW_FALL_SPEED } from './const';
 
+// TODO: https://docs.pmnd.rs/react-three-fiber/api/objects#declaring-objects
+
 export const generateRandomVector = (min: number, max: number): Vector3 => {
   return new ThreeVector3(
     Math.random() * (max - min) + min,
