@@ -5,13 +5,17 @@ import { redirect } from "next/navigation";
 import { daysData } from "utils/const";
 
 
-async function fetchData(day: string) {
-  return daysData[day];
+async function fetchData(day: number) {
+  if(Object.keys(daysData).includes((day - 1).toString())) {
+    return daysData[day - 1];
+  }
+
+  throw new Error("Day not found");
 }
 
 export default async function Page({ params }: { params: { number: string } }) {
   const { number } = params;
-  const { title, caption, src } = await fetchData(number);
+  const { title, caption, src } = await fetchData(parseInt(number));
 
   if (new Date(`12-${number}-2022`) > new Date()) {
     return redirect("/");
@@ -20,7 +24,6 @@ export default async function Page({ params }: { params: { number: string } }) {
   return (
     <div className="flex">
       <SnowyGallery showGifts={false}>
-        {/* <DayModal /> */}
       </SnowyGallery>
       <div
         className="bg-black relative opacity-90 p-12 text-white text-4xl items-center justify-center flex flex-col z-10 mx-auto mt-40 w-[80vw]"
