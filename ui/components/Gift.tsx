@@ -11,6 +11,7 @@ const Gift = ({ isHovered }: { isHovered: boolean }) => {
             <mesh
               castShadow
               receiveShadow
+              // @ts-ignore
               geometry={nodes.Cube_Texture_0.geometry}
               material={materials.Texture}
             />

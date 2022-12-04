@@ -1,5 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 
+// TODO: figure out why geometry is missing from the type
 export function Candle({ isOnFire }: { isOnFire: boolean }) {
   const { nodes, materials } = useGLTF("/assets/gltf/candle2/candle2.glb");
   return (
@@ -9,24 +10,28 @@ export function Candle({ isOnFire }: { isOnFire: boolean }) {
           {isOnFire && <mesh
             castShadow
             receiveShadow
+            // @ts-ignore
             geometry={nodes.pCone2_flame_0.geometry}
             material={materials.flame}
-          />}
+            />}
           <mesh
             castShadow
             receiveShadow
+            // @ts-ignore
             geometry={nodes.pCone2_wich_0.geometry}
             material={materials.wich}
-          />
+            />
           <mesh
             castShadow
             receiveShadow
+            // @ts-ignore
             geometry={nodes.pCone2_candle_0.geometry}
             material={materials.candle}
-          />
+            />
           <mesh
             castShadow
             receiveShadow
+            // @ts-ignore
             geometry={nodes.pCone2_liquid_0.geometry}
             material={materials.liquid}
           />
