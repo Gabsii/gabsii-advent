@@ -1,9 +1,9 @@
-import Snow from "@/ui/components/Snow";
+import SnowyGallery from "@/ui/components/SnowGallery";
 
 export default function Page() {
   return (
     <div className="relative h-full w-full">
-      <Snow />
+      <SnowyGallery />
     </div>
   );
 }

@@ -1,6 +1,9 @@
-import { Center } from '@react-three/drei';
+"use client";
+
+import { Center, Html } from '@react-three/drei';
 import { Vector3 } from '@react-three/fiber';
-import { Suspense, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Suspense, useEffect, useState } from 'react';
 import { Candle } from './Candle';
 import Gift from './Gift';
 import Number from './Number';
@@ -9,18 +12,33 @@ import Number from './Number';
 const GiftWrapper = ({ number, position }: { number: number, position: Vector3 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const candleDate = new Date(`12.${number}.2022`)
-  const isOnFire = candleDate < new Date();
+  const giftIsAccessible = candleDate < new Date();
+  const router = useRouter();
+
+  const handlePointerOver = () => {
+    router.prefetch(`/day/${number}`);
+    setIsHovered(true);
+  }
+
+  const handlePointerOut = () => {
+    setIsHovered(false)
+  }
+
+  useEffect(() => {
+    document.body.style.cursor = isHovered ? 'pointer' : 'auto'
+  }, [isHovered])
 
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<Html><div className="text-white text-4xl">Loading...</div></Html>}>
       <group
         position={position}
-        onPointerOver={() => setIsHovered(true)}
-        onPointerOut={() => setIsHovered(false)}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}
+        onClick={() => giftIsAccessible && router.push(`/day/${number}`)}
       >
         <Center>
           <Gift isHovered={isHovered} />
-          <Candle isOnFire={isOnFire} />
+          <Candle isOnFire={giftIsAccessible} />
           <Number number={number} />
           <ambientLight intensity={0.5} />
           <spotLight

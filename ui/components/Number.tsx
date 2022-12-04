@@ -1,11 +1,6 @@
 import { Center, Text3D } from '@react-three/drei'
 import { Vector3 } from 'three';
 
-const config = {
-  uColor: '#e26686',
-  gColor: '#ff7a7a',
-  shadow: '#80446c',
-}
 const font = "/assets/typefaces/MountainsOfChristmas.json";
 const position = new Vector3(0, 0, 1);
 
@@ -28,7 +23,7 @@ const Number = ({ number }: { number: number }) => {
           {number}
           <meshBasicMaterial color="#ffffff" />
         </Text3D>
-        <spotLight color="#ffffff" position={[-1, -1, 1]} castShadow />
+        <spotLight color="#000" position={[0, 0, 2]} castShadow />
       </Center>
     </group>
   )

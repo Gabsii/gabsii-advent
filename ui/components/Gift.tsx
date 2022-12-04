@@ -1,7 +1,7 @@
 import { useGLTF } from '@react-three/drei';
 
 const Gift = ({ isHovered }: { isHovered: boolean }) => {
-  const { nodes, materials } = useGLTF('assets/gltf/gift/gift.glb');
+  const { nodes, materials } = useGLTF('/assets/gltf/gift/gift.glb');
 
   return (
     <group scale={isHovered ? 1.5 : 1} dispose={null} receiveShadow>
