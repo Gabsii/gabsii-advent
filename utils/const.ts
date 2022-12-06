@@ -3,6 +3,7 @@ import Img2 from '../public/assets/img/day/2.png';
 import Img3 from '../public/assets/img/day/3.png';
 import Img4 from '../public/assets/img/day/4.png';
 import Img5 from '../public/assets/img/day/5.png';
+import Img6 from '../public/assets/img/day/6.png';
 
 export const SNOW_FALL_SPEED = 2;
 export const SNOW_PARTICLES_AMOUNT = 1000;
@@ -36,4 +37,9 @@ export const daysData = [
     caption: 'May Jesus... or someone be with you',
     src: Img5,
   },
+  {
+    title: '🎅🏻',
+    caption: 'Happy Nikolaus Tag :)',
+    src: Img6,
+  }
 ];
